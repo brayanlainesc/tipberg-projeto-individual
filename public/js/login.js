@@ -1,32 +1,49 @@
 function logarUsuario() {
-    const email = ipt_email.value
-    const senha = ipt_senha.value
+    const email = ipt_email.value;
+    const senha = ipt_senha.value;
 
-    const usuariosCadastrados = JSON.parse(localStorage.getItem("tipberg_usuarios_cadastrados")) || [];
-
-    const usuario = {
-        nome: ``,
-        email: ``,
-        senha: ``
+    if (email == "" || senha == "") {
+        msgRetorno.innerHTML = "(Mensagem de erro para todos os campos em branco)"
+        return false;
     }
 
-    for (let i = 0; i < usuariosCadastrados.length; i++) {
-        const usuarioIterado = usuariosCadastrados[i]
+    console.log("FORM LOGIN: ", email);
+    console.log("FORM SENHA: ", senha);
 
-        if (usuarioIterado.email == email) {
-            if (usuarioIterado.senha == senha) {
-                usuario.nome = usuarioIterado.nome
-                usuario.email = usuarioIterado.email
-                usuario.senha = usuarioIterado.senha
-            } else {
-                msgRetorno.innerHTML = `A senha está incorreta.`
-            }
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: email,
+            senhaServer: senha
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+        if (resposta.ok) {
+            console.log(resposta);
+            resposta.json().then(json => {
+                console.log(json);
+                sessionStorage.TIPBERG_AUTH_EMAIL = json.email;
+                sessionStorage.TIPBERG_AUTH_NOME = json.nome;
+                sessionStorage.TIPBERG_AUTH_ID = json.id;
+
+                msgRetorno.innerHTML = `Bem-vindo, ${sessionStorage.TIPBERG_AUTH_NOME}! Redirecionando para a dashboard...`
+                setTimeout(() => {
+                    window.location.href = "../cadastro.html" // temporariamente
+                }, 1000)
+            });
+        } else {
+            console.log("Houve um erro ao tentar realizar o login!");
+            resposta.text().then(texto => {
+                console.error(texto)
+                msgRetorno.innerHTML = texto
+            });
         }
-    }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
 
-    if (usuario.nome == ``) {
-        msgRetorno.innerHTML = `Usuário não encontrado.`
-    } else {
-        msgRetorno.innerHTML = `Bem-vindo, ${usuario.nome}!`
-    }
+    return false;
 }

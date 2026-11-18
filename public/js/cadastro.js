@@ -1,35 +1,67 @@
 function cadastrarUsuario() {
-    const nome = ipt_nome.value
-    const email = ipt_email.value
-    const senha = ipt_senha.value
-    const confSenha = ipt_conf_senha.value
+    const nome = ipt_nome.value;
+    const email = ipt_email.value;
+    const senha = ipt_senha.value;
+    const confSenha = ipt_conf_senha.value;
 
-    if (senha != confSenha) {
-        msgRetorno.innerHTML = `As senhas não condizem.`
-    } else if (senha.length < 8) {
-        msgRetorno.innerHTML = `A senha deve ter no mínimo 8 caracteres.`
-    } else if (nome == ``) {
-        msgRetorno.innerHTML = `O nome de usuário não pode ser vazio.`
-    } else if (email == ``) {
-        msgRetorno.innerHTML = `O endereço de e-mail não pode ser vazio.`
-    } else {
-        // Armazendo dados num objeto usuário
-        const usuario = {
-            nome: nome,
-            email: email,
-            senha: senha
-        }
-
-        // Captura a variável de usuários cadastrados no Local Storage (transformando numa lista)
-        let usuariosCadastrados = JSON.parse(localStorage.getItem("tipberg_usuarios_cadastrados")) || [];
-
-        // Adiciona o novo usuário à lista
-        usuariosCadastrados.push(usuario);
-
-        // Redefine a variável com a lista modificada (transformando em String)
-        localStorage.setItem("tipberg_usuarios_cadastrados", JSON.stringify(usuariosCadastrados));
-
-        // Redireciona para a página de login
-        window.location.href = "login.html"
+    if (
+        nome == "" ||
+        email == "" ||
+        senha == "" ||
+        confSenha == ""
+    ) {
+        msgRetorno.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        return false;
     }
+
+    fetch("/usuarios/buscarUsuarios")
+        .then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    usuariosCadastrados = resposta
+                    console.log("busca de usuários: ", usuariosCadastrados)
+
+                    for (let i = 0; i < usuariosCadastrados.length; i++) {
+                        const emailIterado = usuariosCadastrados[i].email
+                        if (emailIterado == email) {
+                            msgRetorno.innerHTML = `Um usuário com o e-mail ${email} já está cadastrado!`;
+                            return false;
+                        }
+                    }
+                })
+            } else {
+                console.error("Nenhum dado encontrado ou erro na API.")
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nome,
+            emailServer: email,
+            senhaServer: senha
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+            if (resposta.ok) {
+                msgRetorno.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                setTimeout(() => {
+                    window.location = "../login.html";
+                }, "2000");
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
 }

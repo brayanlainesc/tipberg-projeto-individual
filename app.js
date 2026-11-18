@@ -13,8 +13,8 @@ const HOST_APP = process.env.APP_HOST;
 
 const app = express();
 
-const indexRouter = require("./src/routes/index");
-const usuarioRouter = require("./src/routes/usuarios");
+const indexRouter = require("./src/routers/indexRouter");
+const usuarioRouter = require("./src/routers/usuarioRouter");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
