@@ -1,0 +1,352 @@
+:root {
+    --azul-claro: #22A4F3;
+    --azul-escuro: #0B388C;
+    --branco: #FAFCFF;
+    --branco-gelo: #E8F6FF;
+    --amarelo: #FFBB00;
+    --laranja-fraco: #ff9100;
+    --laranja-forte: #ff7300;
+    --laranja-escuro: #e75500;
+    --preto: #01050E;
+
+    --branco-transparente: #FFFFFFAA;
+
+    --gradiente-amarelo: linear-gradient(0deg, var(--laranja-fraco) 0%, var(--amarelo) 100%);
+    --gradiente-laranja: linear-gradient(0deg, var(--laranja-escuro) 0%, var(--laranja-forte) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--branco);
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--azul-claro);
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.header-redondo {
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--azul-escuro);
+    min-width: 500px;
+    width: 50vw;
+    padding: 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.menu-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    background-color: var(--azul-escuro);
+    padding: 10px 30px;
+}
+
+.menu-superior .botoes {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.botao-menu {
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.botao-principal {
+    background: var(--gradiente-amarelo);
+    border-radius: 50px;
+    border: 0;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#img-logo-small {
+    height: 40px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.formulario {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin: 30px;
+    width: 40vw;
+    min-width: 700px;
+    background-color: var(--branco-gelo);
+    border-radius: 50px;
+}
+
+.form-moldura {
+    z-index: 99;
+    position: absolute;
+    border: var(--branco) solid 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    outline: var(--azul-escuro) solid 40px;
+}
+
+.form-questao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+}
+
+.form-questao-img-contraste {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--branco-transparente);
+    background-size: cover;
+    background-position: 0px -30px;
+    border: var(--branco) solid 10px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.form-questao-img {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/mapa_club_penguin.png");
+    background-size: cover;
+    background-position: 0px -30px;
+}
+
+.form-questao h2 {
+    z-index: 98;
+    color: var(--preto);
+    font-size: 28px;
+}
+
+.form-cont-alternativas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    margin: 30px;
+    padding: 15px;
+    position: relative;
+    border-radius: 70px;
+    gap: 15px;
+    background: var(--gradiente-laranja);
+}
+
+.form-alternativa {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    background: var(--gradiente-amarelo);
+    width: 100%;
+    flex-grow: 1;
+    padding: 0 50px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-alternativa-superior {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+.form-alternativa-inferior {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.dashboard {
+    display: flex;
+    height: 100%;
+}
+
+.menu-esquerdo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    background-color: var(--azul-escuro);
+    padding: 30px 10px;
+
+}
+
+.menu-itens-esquerdo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.area-principal-dashboard {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 40px;
+}
+
+#mensagem_aviso {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding-right: 8px;
+    width: 100%;
+    background: var(--gradiente-amarelo);
+    border-radius: 50px;
+}
+
+.mensagem-aviso-icone {
+    padding: 8px;
+    display: flex;
+    background: var(--gradiente-laranja);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.conteudo-mensagem-aviso {
+    flex-grow: 1;
+}
+
+.msg-icon{
+    height: 30px;
+}
+
+.btn-icon {
+    background-color: #00000000;
+    border: 0;
+    cursor: pointer;
+}
+
+.conteudo-dashboard {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    padding: 15px 0px;
+}
+
+.painel-dashboard {
+    position: relative;
+    flex-grow: 1;
+    margin-top: 15px;
+}
+
+.fundo-painel-dashboard {
+    z-index: -2;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../assets/img/mapa_club_penguin.png");
+    background-size: cover;
+    background-position: 0px -90px;
+    border-radius: 50px;
+}
+
+.fundo-painel-dashboard-contraste {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFFAA;
+    background-size: cover;
+    background-position: 0px -30px;
+    border: white solid 6px;
+    border-radius: 50px;
+}
+
+.conteudo-painel-dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+    gap: 20px;
+}
+
+.area-kpis {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    height: 25%;
+}
+
+.elemento-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    background-color: #0B388CCC;
+    border-radius: 20px;
+    border: white solid 6px;
+}
+
+.area-graficos {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    height: 75%;
+}
+
+.grafico-pizza {
+    width: 33%;
+}
+
+.area-graficos-colunas {
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    gap: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+.rodape-redondo {
+    background-color: #0B388C;
+    padding: 10px 100px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}

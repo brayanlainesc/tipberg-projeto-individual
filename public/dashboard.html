@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipberg | Comunidade em Números</title>
+    <script src="js/dashboard.js"></script>
+
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <!-- scripts do Chart.js - 2022-1 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="menu-esquerdo">
+            <img id="img-logo-small" src="../assets/img/tipberg_logo_small.png" alt="">
+            <div class="menu-itens-esquerdo">
+                <a class="botao-menu" href="#">Início</a>
+                <a class="botao-menu" href="#"><button class="botao-principal">Entre para responder</button></a>
+                <a class="botao-menu" href="#">Criar conta</a>
+            </div>
+            <div></div>
+        </div>
+        <div class="area-principal-dashboard">
+            <header>
+                <div class="header-redondo">
+                    <h1>A Comunidade em Números</h1>
+                </div>
+            </header>
+            <main>
+                <div class="conteudo-dashboard">
+                    <div id="mensagem_aviso">
+                        <div class="mensagem-aviso-icone">
+                            <img class="msg-icon" src="assets/img/info_icon.png">
+                        </div>
+                        <div class="conteudo-mensagem-aviso">
+                            <p>
+                                Visualize como os usuários do nosso site responderam às perguntas sobre suas
+                                experiências no Club Penguin.
+                            </p>
+                        </div>
+                        <button class="btn-icon" onclick="fecharMsgAviso()">
+                            <img class="msg-icon" src="assets/img/close_icon.png">
+                        </button>
+                    </div>
+                    <div class="painel-dashboard">
+                        <div class="fundo-painel-dashboard"></div>
+                        <div class="fundo-painel-dashboard-contraste"></div>
+                        <div class="conteudo-painel-dashboard">
+                            <div class="area-kpis">
+                                <div class="elemento-dashboard">KPI 1</div>
+                                <div class="elemento-dashboard">KPI 2</div>
+                                <div class="elemento-dashboard">KPI 3</div>
+                            </div>
+                            <div class="area-graficos">
+                                <div class="area-graficos-colunas">
+                                    <div class="elemento-dashboard grafico-colunas">Gráfico 1</div>
+                                    <div class="elemento-dashboard grafico-colunas">Gráfico 2</div>
+                                </div>
+                                <div class="elemento-dashboard grafico-pizza">Gráfico 3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+            <footer>
+                <div class="rodape-redondo">
+                    <p>₢ Tipberg, 2026 - Todos créditos reservados.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
