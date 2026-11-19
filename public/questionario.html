@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/questionario.js"></script>
 </head>
 
 <body>
@@ -26,20 +27,20 @@
             <div class="form-questao">
                 <div class="form-questao-img-contraste"></div>
                 <div class="form-questao-img"></div>
-                <h2>Questão 1 - Qual era seu minijogo favorito?</h2>
+                <h2 id="h2_questao">Questão 1 - Qual era seu minijogo favorito?</h2>
             </div>
             <div class="form-cont-alternativas">
-                <button class="form-alternativa form-alternativa-superior">
-                    <h2>Cardjitsu</h2>
+                <button onclick="responderAlternativa('A')" class="form-alternativa form-alternativa-superior">
+                    <h2 id="questionario_alternativa_A">Cardjitsu</h2>
                 </button>
-                <button class="form-alternativa">
-                    <h2>Sledge Racing</h2>
+                <button onclick="responderAlternativa('B')" class="form-alternativa">
+                    <h2 id="questionario_alternativa_B">Catchin' Waves</h2>
                 </button>
-                <button class="form-alternativa">
-                    <h2>Aqua Grabber</h2>
+                <button onclick="responderAlternativa('C')" class="form-alternativa">
+                    <h2 id="questionario_alternativa_C">Aqua Grabber</h2>
                 </button>
-                <button class="form-alternativa form-alternativa-inferior">
-                    <h2>Smoothie Smash</h2>
+                <button onclick="responderAlternativa('D')" class="form-alternativa form-alternativa-inferior">
+                    <h2 id="questionario_alternativa_D">Pizzatron 3000</h2>
                 </button>
             </div>
         </div>
