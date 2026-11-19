@@ -14,7 +14,7 @@ function cadastrarUsuario() {
         return false;
     }
 
-    fetch("/usuarios/buscarUsuarios")
+    fetch("/usuarios/listar")
         .then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {

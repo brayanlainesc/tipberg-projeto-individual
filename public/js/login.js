@@ -31,7 +31,7 @@ function logarUsuario() {
 
                 msgRetorno.innerHTML = `Bem-vindo, ${sessionStorage.TIPBERG_AUTH_NOME}! Redirecionando para a dashboard...`
                 setTimeout(() => {
-                    window.location.href = "../cadastro.html" // temporariamente
+                    window.location.href = "../questionario.html"
                 }, 1000)
             });
         } else {

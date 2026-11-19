@@ -120,6 +120,7 @@ main {
     justify-content: center;
     align-items: center;
     height: 25%;
+    padding: 0 60px;
 }
 
 .form-questao-img-contraste {

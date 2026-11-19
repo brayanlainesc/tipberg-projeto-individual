@@ -65,8 +65,8 @@ function cadastrar(req, res) {
     }
 }
 
-function buscarUsuarios(req, res) {
-    usuarioModel.buscarUsuarios()
+function listar(req, res) {
+    usuarioModel.listar()
         .then(
             function (resultadoBusca) {
                 console.log(`\nResultados encontrados: ${resultadoBusca.length}`);
@@ -86,5 +86,5 @@ function buscarUsuarios(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    buscarUsuarios
+    listar
 }
