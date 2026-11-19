@@ -36,9 +36,11 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    const nome = req.body.nomeServer;
-    const email = req.body.emailServer;
-    const senha = req.body.senhaServer;
+    const nome = req.body.nomeServer
+    const email = req.body.emailServer
+    const senha = req.body.senhaServer
+    const anoNasc = req.body.anoNascServer
+    const paisOrigemId = req.body.paisOrigemIdServer
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -46,8 +48,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (anoNasc == undefined) {
+        res.status(400).send("Seu ano de nascimento está undefined!");
+    } else if (paisOrigemId == undefined) {
+        res.status(400).send("Seu país de origem está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, anoNasc, paisOrigemId)
             .then(
                 function (resultado) {
                     res.json(resultado);

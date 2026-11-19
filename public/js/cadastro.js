@@ -1,14 +1,43 @@
+fetch("/paises/listar")
+    .then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                const paises = resposta
+
+                let paisSelOptions = `<option disabled selected value="">Selecione um país</option>`
+                for (let i = 0; i < paises.length; i++) {
+                    const pais = paises[i]
+
+                    paisSelOptions += `
+                        <option value="${pais.id}">${pais.nome}</option>
+                    `
+                }
+
+                sel_pais_origem.innerHTML = paisSelOptions
+            })
+        } else {
+            console.error("Nenhum dado encontrado ou erro na API.")
+        }
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
 function cadastrarUsuario() {
-    const nome = ipt_nome.value;
-    const email = ipt_email.value;
-    const senha = ipt_senha.value;
-    const confSenha = ipt_conf_senha.value;
+    const nome = ipt_nome.value
+    const email = ipt_email.value
+    const senha = ipt_senha.value
+    const confSenha = ipt_conf_senha.value
+    const anoNasc = Number(ipt_ano_nasc.value)
+    const paisOrigemId = sel_pais_origem.value
 
     if (
         nome == "" ||
         email == "" ||
         senha == "" ||
-        confSenha == ""
+        confSenha == "" ||
+        anoNasc == "" ||
+        paisOrigemId == ""
     ) {
         msgRetorno.innerHTML = "(Mensagem de erro para todos os campos em branco)";
         return false;
@@ -45,7 +74,9 @@ function cadastrarUsuario() {
         body: JSON.stringify({
             nomeServer: nome,
             emailServer: email,
-            senhaServer: senha
+            senhaServer: senha,
+            anoNascServer: anoNasc,
+            paisOrigemIdServer: paisOrigemId
         }),
     })
         .then(function (resposta) {
