@@ -60,12 +60,10 @@ INSERT INTO alternativa (questao_id, letra, texto) VALUES
     
     (2, 'A', 'A Raíz (antes da Disney, poucas mecânicas)'),
     (2, 'B', 'A Massiva (novos minijogos, festas temáticas)'),
-    (2, 'C', 'A Histórica (formação da narrativa, operações)'),
+    (2, 'C', 'A Histórica (narrativa complexa, operações)'),
     (2, 'D', 'A Moderna (patrocínios, gráficos novos)'),
     
     (3, 'A', 'Sim, e inclusive joguei Club Penguin Island'),
     (3, 'B', 'Sim, mas depois do fechamento não joguei mais'),
-    (3, 'B', 'Provavelmente, mas não me lembro tão bem'),
-    (3, 'C', 'Não, já tinha parado de jogar há um tempo');
-    
-SELECT * FROM resposta;
+    (3, 'C', 'Provavelmente, mas não me lembro tão bem'),
+    (3, 'D', 'Não, já tinha parado de jogar há um tempo');
