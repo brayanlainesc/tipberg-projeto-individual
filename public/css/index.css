@@ -256,8 +256,8 @@ main ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;          /* todos com a mesma largura */
-    min-width: 0;     /* permite o texto quebrar em vez de alargar o item */
+    flex: 1;         
+    min-width: 0;    
     height: 700px;
 }
 
@@ -289,7 +289,7 @@ main ul li {
 }
 
 .explicacao-linha-tempo {
-    width: 100%;      /* ocupa a largura do item, em vez de encolher ao texto */
+    width: 100%;      
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
@@ -324,21 +324,120 @@ main ul li {
 
     padding: 30px 80px;
     width: 100%;
-    background-color: #072866;
+    background-image: url("../assets/img/fundos/ancoradourobg.png");
+    background-size: cover;
+    background-position: center top;
 }
 
 .mapa-fundo {
+    position: relative;
     display: flex;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    container-type: inline-size;
+    width: 100%;
+    max-width: calc(80vh * 3670 / 2270 + 40px);
+}
+
+#fundo-mapa {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
     border-radius: 20px;
 }
 
-.mapa-fundo img {
-    height: 100%;
+.mapa-icone-lugar {
+    position: absolute;
+    background-color: #00000000;
+    border: none;
+}
+
+.mapa-icone-lugar img {
+    display: block;
+    zoom: calc(100cqw / 3670px);
+}
+
+.mapa-icone-lugar:hover {
+    cursor: pointer;
+}
+
+.lugar-destaque:hover img {
+    zoom: calc(105cqw / 3670px);
+    transform: translate(-2.381%, -2.381%);
+}
+
+.lugar-destaque:hover .info-lugar {
+    z-index: 10;
+    display: block;
+}
+
+.info-lugar {
+    display: none;
+    position: absolute;
+    
+    width: 150px;
+    min-width: max-content;
+    text-align: center;
+    background-color: #FFEF80;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    border: #A67419 solid 2px;
+    padding: 3px 0;
+}
+
+#centro { top: 53.5%; left: 28.6%; }
+#plaza { top: 53.1%; left: 57.1%; }
+#forte_nevado { top: 49.8%; left: 47%; }
+#ancoradouro { top: 76.7%; left: 13%; }
+#praia { top: 54.3%; left: 1.1%; }
+#montanha { top: 24%; left: 11.5%; }
+#estadio { top: 39%; left: 36.3%; }
+#floresta_puffle { top: 35.5%; left: 29.8%; }
+#parque_dos_puffles { top: 43.6%; left: 56.2%; }
+#patio_do_dojo { top: 24.3%; left: 57.5%; }
+#floresta { top: 63.3%; left: 74.3%; }
+#mina { top: 42.3%; left: 70.1%; }
+#pista_de_skate { top: 46.1%; left: 86.9%; }
+#prainha { top: 63.7%; left: 90.4%; }
+#iglus { top: 65.2%; left: 32.5%; }
+#esqui { top: 44.2%; left: 25.1%; z-index: 10; }
+#icebergue { top: 40.1%; left: 92.2%; }
+
+.screenshot_lugar {
+    z-index: 12;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-height: 80vh;
-    border-radius: 20px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #00000088;
+}
+
+#img_screenshot_lugar {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    border: white solid 5px;
+}
+
+#btn_fechar_screenshot {
+    position: absolute;
+    border: none;
+    margin: 0;
+    line-height: 0;
+    top: 5%;
+    left: 87%;
+}
+
+#btn_fechar_screenshot img {
+    width: 30px;
+    height: auto;
 }
 
 /* INTRODUÇÃO */

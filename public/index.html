@@ -183,23 +183,100 @@
         <div id="secao-mapa">
             <h2>Explore a ilha</h2>
             <div class="mapa-fundo">
-                <img src="assets/img/fundos/mapa_contraste.png" alt="Mapa da ilha do Club Penguin">
-                <div id="centro" class="mapa-icone-lugar"></div>
-                <div id="plaza" class="mapa-icone-lugar"></div>
-                <div id="forte_nevado" class="mapa-icone-lugar"></div>
-                <div id="ancoradouro" class="mapa-icone-lugar"></div>
-                <div id="praia" class="mapa-icone-lugar"></div>
-                <div id="montanha" class="mapa-icone-lugar"></div>
-                <div id="estadio" class="mapa-icone-lugar"></div>
-                <div id="floresta_puffle" class="mapa-icone-lugar"></div>
-                <div id="parque_dos_puffles" class="mapa-icone-lugar"></div>
-                <div id="patio_do_dojo" class="mapa-icone-lugar"></div>
-                <div id="floresta" class="mapa-icone-lugar"></div>
-                <div id="casinha_da_mina" class="mapa-icone-lugar"></div>
-                <div id="pista_de_skate" class="mapa-icone-lugar"></div>
-                <div id="cova" class="mapa-icone-lugar"></div>
-                <div id="iglus" class="mapa-icone-lugar"></div>
-                <div id="icebergue" class="mapa-icone-lugar"></div>
+                <img src="assets/img/fundos/mapa_contraste.png" id="fundo-mapa" alt="Mapa da ilha do Club Penguin">
+
+
+                <button id="centro" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('centro')">
+                    <img src="assets/img/icones/lugares_mapa/centro.png" alt="Centro">
+                    <div class="info-lugar">Centro</div>
+                </button>
+
+                <button id="plaza" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('plaza')">
+                    <img src="assets/img/icones/lugares_mapa/plaza.png" alt="Praça">
+                    <div class="info-lugar">Plaza</div>
+                </button>
+
+                <button id="forte_nevado" class="mapa-icone-lugar lugar-destaque"
+                    onclick="mostrarScreenshot('forte_nevado')">
+                    <img src="assets/img/icones/lugares_mapa/forte_nevado.png" alt="Forte Nevado">
+                    <div class="info-lugar">Forte Nevado</div>
+                </button>
+
+                <button id="ancoradouro" class="mapa-icone-lugar lugar-destaque"
+                    onclick="mostrarScreenshot('ancoradouro')">
+                    <img src="assets/img/icones/lugares_mapa/ancoradouro.png" alt="Ancoradouro">
+                    <div class="info-lugar">Ancoradouro</div>
+                </button>
+
+                <button id="praia" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('praia')">
+                    <img src="assets/img/icones/lugares_mapa/praia.png" alt="Praia">
+                    <div class="info-lugar">Praia</div>
+                </button>
+
+                <button id="montanha" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('montanha')">
+                    <img src="assets/img/icones/lugares_mapa/montanha.png" alt="Montanha">
+                    <div class="info-lugar">Montanha</div>
+                </button>
+
+                <button id="estadio" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('estadio')">
+                    <img src="assets/img/icones/lugares_mapa/estadio.png" alt="Estádio">
+                    <div class="info-lugar">Estádio</div>
+                </button>
+
+                <button id="floresta_puffle" class="mapa-icone-lugar lugar-destaque"
+                    onclick="mostrarScreenshot('floresta_puffle')">
+                    <img src="assets/img/icones/lugares_mapa/floresta_puffle.png" alt="Floresta Puffle">
+                    <div class="info-lugar">Floresta Puffle</div>
+                </button>
+
+                <button id="parque_dos_puffles" class="mapa-icone-lugar lugar-destaque"
+                    onclick="mostrarScreenshot('parque_dos_puffles')">
+                    <img src="assets/img/icones/lugares_mapa/parque_dos_puffles.png" alt="Parque dos Puffles">
+                    <div class="info-lugar">Parque dos Puffles</div>
+                </button>
+
+                <button id="patio_do_dojo" class="mapa-icone-lugar lugar-destaque"
+                    onclick="mostrarScreenshot('patio_do_dojo')">
+                    <img src="assets/img/icones/lugares_mapa/patio_do_dojo.png" alt="Pátio do Dojo">
+                    <div class="info-lugar">Pátio do Dojo</div>
+                </button>
+
+                <button id="floresta" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('floresta')">
+                    <img src="assets/img/icones/lugares_mapa/floresta.png" alt="Floresta">
+                    <div class="info-lugar">Floresta</div>
+                </button>
+
+                <button id="mina" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('mina')">
+                    <img src="assets/img/icones/lugares_mapa/mina.png" alt="Mina">
+                    <div class="info-lugar">Mina</div>
+                </button>
+
+                <button id="pista_de_skate" class="mapa-icone-lugar lugar-destaque"
+                    onclick="mostrarScreenshot('pista_de_skate')">
+                    <img src="assets/img/icones/lugares_mapa/pista_de_skate.png" alt="Pista de Skate">
+                    <div class="info-lugar">Pista de Skate</div>
+                </button>
+
+                <button id="prainha" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('prainha')">
+                    <img src="assets/img/icones/lugares_mapa/prainha.png" alt="Prainha">
+                    <div class="info-lugar">Prainha</div>
+                </button>
+
+                <button id="iglus" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('iglus')">
+                    <img src="assets/img/icones/lugares_mapa/iglus.png" alt="Iglus">
+                    <div class="info-lugar">Iglus</div>
+                </button>
+
+                <button id="esqui" class="mapa-icone-lugar lugar-destaque" onclick="mostrarScreenshot('esqui')">
+                    <img src="assets/img/icones/lugares_mapa/esqui.png" alt="Esqui">
+                    <div class="info-lugar">Esqui</div>
+                </button>
+
+                <button id="icebergue" class="mapa-icone-lugar" onclick="mostrarScreenshot('icebergue')">
+                    <img src="assets/img/icones/lugares_mapa/icebergue.png" alt="Icebergue">
+                </button>
+
+                <div id="screenshot_lugar"></div>
             </div>
         </div>
         <div id="secao-linha-tempo">
