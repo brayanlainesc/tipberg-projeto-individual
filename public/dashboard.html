@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipberg | Comunidade em Números</title>
-    <script src="js/dashboard.js"></script>
-
     <link rel="stylesheet" href="css/estilo.css">
 
     <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <script src="js/dashboard.js" defer></script>
 </head>
 
 <body>
@@ -20,9 +20,10 @@
         <div class="menu-esquerdo">
             <img id="img-logo-small" src="assets/img/icones/tipberg_logo_small.png" alt="">
             <div class="menu-itens-esquerdo">
-                <a class="botao-menu" href="#">Início</a>
-                <a class="botao-menu" href="#"><button class="botao-principal">Entre para responder</button></a>
-                <a class="botao-menu" href="#">Criar conta</a>
+                <a class="botao-menu" href="index.html">Início</a>
+                <a class="botao-menu" href="questionario.html"><button class="botao-principal">Entre para
+                        responder</button></a>
+                <a class="botao-menu" href="cadastro.html">Criar conta</a>
             </div>
             <div></div>
         </div>
@@ -59,7 +60,12 @@
                             </div>
                             <div class="area-graficos">
                                 <div class="area-graficos-colunas">
-                                    <div class="elemento-dashboard grafico-colunas">Gráfico 1</div>
+                                    <div class="elemento-dashboard grafico-colunas">
+                                        <h3>Ranking de minijogos</h3>
+                                        <div class="area-canvas">
+                                            <canvas id="grafico_minijogos"></canvas>
+                                        </div>
+                                    </div>
                                     <div class="elemento-dashboard grafico-colunas">Gráfico 2</div>
                                 </div>
                                 <div class="elemento-dashboard grafico-pizza">Gráfico 3</div>

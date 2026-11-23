@@ -1,6 +1,87 @@
+let minijogos = []
+
+function obterRankingMinijogos() {
+    fetch(`/dashboard/minijogos`)
+        .then(function (resposta) {
+            if (!resposta.ok) {
+                throw new Error('Erro ' + resposta.status)
+            }
+            return resposta.json()
+        })
+        .then(function (listaJson) {
+            minijogos = listaJson
+            plotarGraficoMinijogos(minijogos)
+        })
+        .catch(function (erro) { console.error(erro) })
+}
+
+function plotarGraficoMinijogos(lista) {
+    var labels = []
+    var valores = []
+
+    for (var i = 0; i < lista.length; i++) {
+        labels.push(lista[i].jogo) // nomes das colunas do SELECT
+        valores.push(lista[i].qtd_respostas)
+    }
+
+    new Chart(document.getElementById('grafico_minijogos'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Votos',
+                data: valores,
+                backgroundColor: '#22A4F3',
+                borderColor: '#0B388C',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            color: '#FAFCFF',
+
+            plugins: {
+                legend: {
+                    display: false,
+                    labels: {
+                        color: '#FAFCFF'
+                    }
+                }
+            },
+
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#FAFCFF'
+                    },
+                    grid: {
+                        color: '#FFFFFF33'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0,
+                        color: '#FAFCFF'
+                    },
+                    grid: {
+                        color: '#FFFFFF33'
+                    }
+                }
+            }
+        }
+    })
+}
+
+obterRankingMinijogos()
+
 function fecharMsgAviso() {
     mensagem_aviso.innerHTML = ``
 }
+
+
 
 // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -113,7 +194,7 @@ function fecharMsgAviso() {
 // }
 
 // // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
 // // A função *plotarGrafico* também invoca a função *atualizarGrafico*
 // function plotarGrafico(resposta, idAquario) {
 
@@ -171,7 +252,7 @@ function fecharMsgAviso() {
 
 
 // // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// // buscando a última medida inserida em tabela contendo as capturas, 
+// // buscando a última medida inserida em tabela contendo as capturas,
 
 // //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 // //     Para ajustar o "select", ajuste o comando sql em src/models

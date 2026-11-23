@@ -254,7 +254,7 @@ main {
     flex-grow: 1;
 }
 
-.msg-icon{
+.msg-icon {
     height: 30px;
 }
 
@@ -286,7 +286,7 @@ main {
     width: 100%;
     height: 100%;
 
-    background-image: url("../assets/img/mapa_club_penguin.png");
+    background-image: url("../assets/img/fundos/cpilha.png");
     background-size: cover;
     background-position: 0px -90px;
     border-radius: 50px;
@@ -326,6 +326,7 @@ main {
     align-items: center;
     flex-grow: 1;
 
+    padding: 15px;
     background-color: #0B388CCC;
     border-radius: 20px;
     border: white solid 6px;
@@ -348,6 +349,23 @@ main {
     flex-direction: column;
     width: 67%;
     gap: 20px;
+    min-height: 0;
+}
+
+.grafico-colunas {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+}
+
+.area-canvas {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
 }
 
 footer {
