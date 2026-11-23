@@ -368,7 +368,7 @@ main ul li {
 }
 
 .lugar-destaque:hover .info-lugar {
-    z-index: 10;
+    z-index: 13;
     display: block;
 }
 
@@ -385,7 +385,8 @@ main ul li {
     transform: translateX(-50%);
     color: black;
     border: #A67419 solid 2px;
-    padding: 3px 0;
+    padding: 3px 10px;
+    font-size: 18px;
 }
 
 #centro { top: 53.5%; left: 28.6%; }
