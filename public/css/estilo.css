@@ -23,10 +23,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    background-color: var(--azul-claro);
+    background-image: url("../assets/img/fundos/iceberg_contraste.jpg");
+    background-size: cover;
+    background-position: 0 -100px;
     height: 100vh;
 }
 
@@ -45,6 +51,13 @@ header {
     padding: 10px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .menu-superior {
@@ -96,283 +109,8 @@ header {
 
 main {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-}
-
-.formulario {
-    position: relative;
-    display: flex;
     flex-direction: column;
-    height: 80%;
-    margin: 30px;
-    width: 40vw;
-    min-width: 700px;
-    background-color: var(--branco-gelo);
-    border-radius: 50px;
-}
-
-.form-moldura {
-    z-index: 99;
-    position: absolute;
-    border: var(--branco) solid 10px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100px;
-    outline: var(--azul-escuro) solid 40px;
-}
-
-.form-questao {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 25%;
-    padding: 0 60px;
-}
-
-.form-questao-img-contraste {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: var(--branco-transparente);
-    background-size: cover;
-    background-position: 0px -30px;
-    border: var(--branco) solid 10px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-}
-
-.form-questao-img {
-    z-index: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url("../assets/img/fundos/cpilha.png");
-    background-size: cover;
-    background-position: 0px -30px;
-}
-
-.form-questao h2 {
-    z-index: 98;
-    color: var(--preto);
-    font-size: 28px;
-}
-
-.form-cont-alternativas {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    margin: 30px;
-    padding: 15px;
-    position: relative;
-    border-radius: 70px;
-    gap: 15px;
-    background: var(--gradiente-laranja);
-}
-
-.form-alternativa {
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    background: var(--gradiente-amarelo);
-    width: 100%;
-    flex-grow: 1;
-    padding: 0 50px;
-    border-radius: 30px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.form-alternativa-superior {
-    border-top-left-radius: 60px;
-    border-top-right-radius: 60px;
-}
-
-.form-alternativa-inferior {
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-}
-
-.dashboard {
-    display: flex;
-    height: 100%;
-}
-
-.menu-esquerdo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-
-    background-color: var(--azul-escuro);
-    padding: 30px 10px;
-
-}
-
-.menu-itens-esquerdo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px;
-}
-
-.area-principal-dashboard {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 0 40px;
-}
-
-#mensagem_aviso {
-    display: flex;
-    align-items: center;
     gap: 20px;
-
-    padding-right: 8px;
-    width: 100%;
-    background: var(--gradiente-amarelo);
-    border-radius: 50px;
-}
-
-.mensagem-aviso-icone {
-    padding: 8px;
-    display: flex;
-    background: var(--gradiente-laranja);
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-}
-
-.conteudo-mensagem-aviso {
-    flex-grow: 1;
-}
-
-.msg-icon {
-    height: 30px;
-}
-
-.btn-icon {
-    background-color: #00000000;
-    border: 0;
-    cursor: pointer;
-}
-
-.conteudo-dashboard {
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    height: 100%;
-    padding: 15px 0px;
-}
-
-.painel-dashboard {
-    position: relative;
-    flex-grow: 1;
-    margin-top: 15px;
-}
-
-.fundo-painel-dashboard {
-    z-index: -2;
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    background-image: url("../assets/img/fundos/cpilha.png");
-    background-size: cover;
-    background-position: 0px -90px;
-    border-radius: 50px;
-}
-
-.fundo-painel-dashboard-contraste {
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #FFFFFFAA;
-    background-size: cover;
-    background-position: 0px -30px;
-    border: white solid 6px;
-    border-radius: 50px;
-}
-
-.conteudo-painel-dashboard {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 30px;
-    gap: 20px;
-}
-
-.area-kpis {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-
-    height: 25%;
-}
-
-.elemento-dashboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-
-    padding: 15px;
-    background-color: #0B388CCC;
-    border-radius: 20px;
-    border: white solid 6px;
-}
-
-.area-graficos {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-
-    height: 75%;
-}
-
-.grafico-pizza {
-    width: 33%;
-    padding: 50px;
-    gap: 30px;
-}
-
-#grafico_despedida {
-    margin: 0 auto;
-}
-
-.area-graficos-colunas {
-    display: flex;
-    flex-direction: column;
-    width: 67%;
-    gap: 20px;
-    min-height: 0;
-}
-
-.grafico-colunas {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-    min-height: 0;
-}
-
-.area-canvas {
-    position: relative;
-    flex: 1;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
 }
 
 footer {

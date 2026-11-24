@@ -5,30 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/sessao.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <script src="js/login.js"></script>
 </head>
 
 <body>
     <header>
+        <div class="menu-superior">
+            <img id="img-logo-small" src="assets/img/icones/tipberg_logo_small.png" alt="">
+            <div class="botoes">
+                <a class="botao-menu" href="index.html">Início</a>
+                <a class="botao-menu" href="cadastro.html">Cadastre-se</a>
+                <a class="botao-menu" href="#">Entrar</a>
+                <a class="botao-menu" href="dashboard.html">
+                    <button class="botao-principal">Comunidade em Números</button>
+                </a>
+            </div>
+        </div>
     </header>
     <main>
-        <img id="img_wallpaper" src="assets/img/fundos/iceberg_wallpaper.jpg" alt="">
         <div class="formulario">
-            <h2>Login de usuário</h2>
-            <div class="campo">
-                <h3>Endereço de e-mail</h3>
-                <input type="email" id="ipt_email">
+            <div class="form-moldura"></div>
+            <div class="form-questao">
+                <div class="form-questao-img-contraste"></div>
+                <div class="form-questao-img"></div>
+                <h3>Login de usuário</h3>
             </div>
-            <div class="campo">
-                <h3>Senha</h3>
-                <input type="password" id="ipt_senha">
+            <div class="form-cont-campos">
+                <div class="campo">
+                    <label>Endereço de e-mail</label>
+                    <input class="campo-input" type="email" id="ipt_email">
+                </div>
+                <div class="campo">
+                    <label>Senha</label>
+                    <input class="campo-input" type="password" id="ipt_senha">
+                </div>
+                <button class="botao-principal btn-login" onclick="logarUsuario()">Log in</button>
+                <div id="msgRetorno"></div>
             </div>
-            <button onclick="logarUsuario()">Log in</button>
-            <div id="msgRetorno"></div>
         </div>
     </main>
     <footer>
+        <div class="rodape-redondo">
+            <p>₢ Tipberg, 2026 - Todos créditos reservados.</p>
+        </div>
     </footer>
 </body>
 

@@ -18,8 +18,29 @@ function listarParticipacoesDespedida(req, res) {
     })
 }
 
+function buscarQtdRespostas(req, res) {
+    dashboardModel.buscarQtdRespostas().then((resultado) => {
+        res.status(200).json(resultado);
+    })
+}
+
+function buscarIdadeJogadores(req, res) {
+    dashboardModel.buscarIdadeJogadores().then((resultado) => {
+        res.status(200).json(resultado);
+    })
+}
+
+function buscarPaisJogadores(req, res) {
+    dashboardModel.buscarPaisJogadores().then((resultado) => {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
     listarMinijogos,
     listarErasJogadas,
-    listarParticipacoesDespedida
+    listarParticipacoesDespedida,
+    buscarQtdRespostas,
+    buscarIdadeJogadores,
+    buscarPaisJogadores
 }

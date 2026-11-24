@@ -35,7 +35,7 @@ function carregarQuestao(num) {
 
         if (questao.numero == num) {
             const texto = questao.texto
-            h2_questao.innerHTML = `Questão ${num} - ${texto}`
+            titulo_questao.innerHTML = `Questão ${num} - ${texto}`
             questaoAtual = num
             idQuestaoAtual = questao.id
         }
@@ -50,7 +50,9 @@ function carregarQuestao(num) {
             }
         }
     } else {
-        alert("Fim do questionário!")
+        alert("Fim do questionário! Redirecionando para a dashboard...")
+        sessionStorage.TIPBERG_QUESTIONARIO = 1
+        window.location.href = "../dashboard.html"
     }
 }
 
@@ -77,7 +79,6 @@ function responderAlternativa(letra) {
         })
             .then(function (resposta) {
                 if (resposta.ok) {
-                    alert("Respondido!");
                     carregarQuestao(questaoAtual + 1)
                 } else {
                     throw "Houve um erro ao tentar responder a questão!";

@@ -5,46 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/sessao.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <script src="js/cadastro.js"></script>
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <div class="menu-superior">
+            <img id="img-logo-small" src="assets/img/icones/tipberg_logo_small.png" alt="">
+            <div class="botoes">
+                <a class="botao-menu" href="index.html">Início</a>
+                <a class="botao-menu" href="#">Cadastre-se</a>
+                <a class="botao-menu" href="login.html">Entrar</a>
+                <a class="botao-menu" href="dashboard.html">
+                    <button class="botao-principal">Comunidade em Números</button>
+                </a>
+            </div>
+        </div>
+    </header>
     <main>
-        <img id="img_wallpaper" src="assets/img/fundos/iceberg_wallpaper.jpg" alt="">
         <div class="formulario">
-            <h2>Cadastro de usuário</h2>
-            <div class="campo">
-                <h3>Nome de usuário</h3>
-                <input type="text" id="ipt_nome">
+            <div class="form-moldura"></div>
+            <div class="form-questao">
+                <div class="form-questao-img-contraste"></div>
+                <div class="form-questao-img"></div>
+                <h3>Cadastro de usuário</h3>
             </div>
-            <div class="campo">
-                <h3>Endereço de e-mail</h3>
-                <input type="email" id="ipt_email">
+            <div class="form-cont-campos">
+                <div class="campo">
+                    <label>Nome de usuário</label>
+                    <div class="validacao-campo">
+                        <input class="campo-input" type="text" id="ipt_nome">
+                        <div id="msg_erro_nome"></div>
+                    </div>
+                </div>
+                <div class="campo">
+                    <label>Endereço de e-mail</label>
+                    <div class="validacao-campo">
+                        <input class="campo-input" type="email" id="ipt_email">
+                        <div id="msg_erro_email"></div>
+                    </div>
+                </div>
+                <div class="campo-composto">
+                    <div class="campo">
+                        <label>Senha</label>
+                        <input class="campo-input" type="password" id="ipt_senha">
+                    </div>
+                    <div class="campo">
+                        <label>Confirmação de senha</label>
+                        <input class="campo-input" type="password" id="ipt_conf_senha">
+                    </div>
+                </div>
+                <div class="validacao-campo">
+                    <div id="msg_erro_senha"></div>
+                </div>
+                <div class="campo-composto">
+                    <div class="campo">
+                        <label>Ano de nascimento</label>
+                        <div class="validacao-campo">
+                            <input class="campo-input" type="number" id="ipt_ano_nasc">
+                            <div id="msg_erro_ano_nasc"></div>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label>País de origem</label>
+                        <div class="validacao-campo">
+                            <select class="campo-input" id="sel_pais_origem">
+                            </select>
+                            <div id="msg_erro_pais_origem"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="botao-principal btn-login" onclick="cadastrarUsuario()">Cadastre-se</button>
+                <div id="msgRetorno"></div>
             </div>
-            <div class="campo">
-                <h3>Senha</h3>
-                <input type="password" id="ipt_senha">
-            </div>
-            <div class="campo">
-                <h3>Confirmação de senha</h3>
-                <input type="password" id="ipt_conf_senha">
-            </div>
-            <div class="campo">
-                <h3>Ano de nascimento</h3>
-                <input type="number" id="ipt_ano_nasc">
-            </div>
-            <div class="campo">
-                <h3>Ano de nascimento</h3>
-                <select id="sel_pais_origem">
-                </select>
-            </div>
-            <button onclick="cadastrarUsuario()">Cadastre-se</button>
-            <div id="msgRetorno"></div>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="rodape-redondo">
+            <p>₢ Tipberg, 2026 - Todos créditos reservados.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

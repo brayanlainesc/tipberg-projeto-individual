@@ -2,11 +2,6 @@ function logarUsuario() {
     const email = ipt_email.value;
     const senha = ipt_senha.value;
 
-    if (email == "" || senha == "") {
-        msgRetorno.innerHTML = "(Mensagem de erro para todos os campos em branco)"
-        return false;
-    }
-
     console.log("FORM LOGIN: ", email);
     console.log("FORM SENHA: ", senha);
 
@@ -29,10 +24,17 @@ function logarUsuario() {
                 sessionStorage.TIPBERG_AUTH_NOME = json.nome;
                 sessionStorage.TIPBERG_AUTH_ID = json.id;
 
-                msgRetorno.innerHTML = `Bem-vindo, ${sessionStorage.TIPBERG_AUTH_NOME}! Redirecionando para a dashboard...`
-                setTimeout(() => {
-                    window.location.href = "../questionario.html"
-                }, 1000)
+                if (sessionStorage.TIPBERG_QUESTIONARIO == 1) {
+                    msgRetorno.innerHTML = `Bem-vindo, ${sessionStorage.TIPBERG_AUTH_NOME}! Redirecionando para a dashboard...`
+                    setTimeout(() => {
+                        window.location.href = "../dashboard.html"
+                    }, 1000)
+                } else {
+                    msgRetorno.innerHTML = `Bem-vindo, ${sessionStorage.TIPBERG_AUTH_NOME}! Redirecionando para o questionário...`
+                    setTimeout(() => {
+                        window.location.href = "../questionario.html"
+                    }, 1000)
+                }
             });
         } else {
             console.log("Houve um erro ao tentar realizar o login!");

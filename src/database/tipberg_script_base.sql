@@ -109,7 +109,36 @@ INSERT INTO resposta (usuario_id, questao_id, alternativa_id) VALUES
 	(111,3,10),(112,3,9),(113,3,12),(114,3,10),(115,3,11),
 	(116,3,12),(117,3,9),(118,3,11),(119,3,10),(120,3,12);
 		
-SELECT * FROM resposta;
+-- KPI 1: QUANTIDADE DE JOGADORES QUE RESPONDERAM
+CREATE VIEW vw_qtd_respostas AS
+SELECT
+	COUNT(DISTINCT r.usuario_id) AS qtd_respostas
+FROM resposta r
+JOIN usuario u ON r.usuario_id = u.id;
+
+SELECT * FROM vw_qtd_respostas;
+
+-- KPI 2: IDADE ATUAL DOS JOGADORES QUE RESPONDERAM
+CREATE VIEW vw_idade_jogadores AS
+SELECT
+	ROUND(AVG(YEAR(CURDATE()) - u.ano_nasc), 0) AS idade_jogadores
+FROM resposta r
+JOIN usuario u ON r.usuario_id = u.id;
+
+SELECT * FROM vw_idade_jogadores;
+
+-- KPI 3: PAÍS QUE MAIS RESPONDEU O QUESTIONÁRIO
+CREATE VIEW vw_pais_jogadores AS
+SELECT 
+    p.nome AS pais_jogadores
+FROM resposta r
+JOIN usuario u ON r.usuario_id = u.id
+JOIN pais p ON u.pais_id = p.id
+GROUP BY p.nome
+ORDER BY COUNT(r.usuario_id)
+LIMIT 1;
+
+SELECT * FROM vw_pais_jogadores;
 
 -- GRÁFICO 1: RANKING DE MINIJOGOS
 CREATE VIEW vw_ranking_minijogos AS

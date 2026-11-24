@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipberg | Comunidade em Números</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
@@ -21,9 +22,8 @@
             <img id="img-logo-small" src="assets/img/icones/tipberg_logo_small.png" alt="">
             <div class="menu-itens-esquerdo">
                 <a class="botao-menu" href="index.html">Início</a>
-                <a class="botao-menu" href="questionario.html"><button class="botao-principal">Entre para
-                        responder</button></a>
                 <a class="botao-menu" href="cadastro.html">Criar conta</a>
+                <div id="btn_questionario"></div>
             </div>
             <div></div>
         </div>
@@ -54,9 +54,18 @@
                         <div class="fundo-painel-dashboard-contraste"></div>
                         <div class="conteudo-painel-dashboard">
                             <div class="area-kpis">
-                                <div class="elemento-dashboard">KPI 1</div>
-                                <div class="elemento-dashboard">KPI 2</div>
-                                <div class="elemento-dashboard">KPI 3</div>
+                                <div class="elemento-dashboard">
+                                    <h3>Quantidade de respostas:</h3>
+                                    <h1 id="kpi_qtd_jogadores"></h1>
+                                </div>
+                                <div class="elemento-dashboard">
+                                    <h3>Idade média atual dos jogadores:</h3>
+                                    <h1 id="kpi_idade_jogadores"></h1>
+                                </div>
+                                <div class="elemento-dashboard">
+                                    <h3>País de origem da maioria dos jogadores:</h3>
+                                    <h1 id="kpi_pais_jogadores"></h1>
+                                </div>
                             </div>
                             <div class="area-graficos">
                                 <div class="area-graficos-colunas">
@@ -67,7 +76,7 @@
                                         </div>
                                     </div>
                                     <div class="elemento-dashboard grafico-colunas">
-                                        <h3>Quantidade de jogadores por eras que jogaram</h3>
+                                        <h3>Quantidade de jogadores por eras em que jogaram</h3>
                                         <div class="area-canvas">
                                             <canvas id="grafico_eras_jogadas"></canvas>
                                         </div>

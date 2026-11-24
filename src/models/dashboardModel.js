@@ -24,8 +24,35 @@ function listarParticipacoesDespedida() {
     return database.executar(instrucaoSql)
 }
 
+function buscarQtdRespostas() {
+    const instrucaoSql = `
+        SELECT * FROM vw_qtd_respostas;
+        `
+
+    return database.executar(instrucaoSql)
+}
+
+function buscarIdadeJogadores() {
+    const instrucaoSql = `
+        SELECT * FROM vw_idade_jogadores;
+        `
+
+    return database.executar(instrucaoSql)
+}
+
+function buscarPaisJogadores() {
+    const instrucaoSql = `
+        SELECT * FROM vw_pais_jogadores;
+        `
+
+    return database.executar(instrucaoSql)
+}
+
 module.exports = {
     listarMinijogos,
     listarErasJogadas,
-    listarParticipacoesDespedida
+    listarParticipacoesDespedida,
+    buscarQtdRespostas,
+    buscarIdadeJogadores,
+    buscarPaisJogadores
 };

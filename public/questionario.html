@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <script src="js/questionario.js"></script>
 </head>
 
@@ -15,6 +16,8 @@
             <img id="img-logo-small" src="assets/img/icones/tipberg_logo_small.png" alt="">
             <div class="botoes">
                 <a class="botao-menu" href="index.html">Início</a>
+                <a class="botao-menu" href="cadastro.html">Cadastre-se</a>
+                <a class="botao-menu" href="login.html">Entrar</a>
                 <a class="botao-menu" href="dashboard.html">
                     <button class="botao-principal">Comunidade em Números</button>
                 </a>
@@ -27,20 +30,20 @@
             <div class="form-questao">
                 <div class="form-questao-img-contraste"></div>
                 <div class="form-questao-img"></div>
-                <h2 id="h2_questao">Questão 1 - Qual era seu minijogo favorito?</h2>
+                <h3 id="titulo_questao">Questão 1 - Qual era seu minijogo favorito?</h3>
             </div>
             <div class="form-cont-alternativas">
                 <button onclick="responderAlternativa('A')" class="form-alternativa form-alternativa-superior">
-                    <h2 id="questionario_alternativa_A">Cardjitsu</h2>
+                    <h3 id="questionario_alternativa_A">Cardjitsu</h3>
                 </button>
                 <button onclick="responderAlternativa('B')" class="form-alternativa">
-                    <h2 id="questionario_alternativa_B">Catchin' Waves</h2>
+                    <h3 id="questionario_alternativa_B">Catchin' Waves</h3>
                 </button>
                 <button onclick="responderAlternativa('C')" class="form-alternativa">
-                    <h2 id="questionario_alternativa_C">Aqua Grabber</h2>
+                    <h3 id="questionario_alternativa_C">Aqua Grabber</h3>
                 </button>
                 <button onclick="responderAlternativa('D')" class="form-alternativa form-alternativa-inferior">
-                    <h2 id="questionario_alternativa_D">Pizzatron 3000</h2>
+                    <h3 id="questionario_alternativa_D">Pizzatron 3000</h3>
                 </button>
             </div>
         </div>

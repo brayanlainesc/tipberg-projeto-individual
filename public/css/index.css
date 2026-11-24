@@ -1,29 +1,6 @@
-:root {
-    --azul-claro: #22A4F3;
-    --azul-escuro: #0B388C;
-    --branco: #FAFCFF;
-    --branco-gelo: #E8F6FF;
-    --amarelo: #FFBB00;
-    --laranja-fraco: #ff9100;
-    --laranja-forte: #ff7300;
-    --laranja-escuro: #e75500;
-    --preto: #01050E;
-
-    --branco-transparente: #FFFFFFAA;
-
-    --gradiente-amarelo: linear-gradient(0deg, var(--laranja-fraco) 0%, var(--amarelo) 100%);
-    --gradiente-laranja: linear-gradient(0deg, var(--laranja-escuro) 0%, var(--laranja-forte) 100%);
-}
-
 .menu-superior {
     z-index: 99;
     position: fixed;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 main h2 {

@@ -1,0 +1,146 @@
+.formulario {
+    z-index: 100;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    min-width: 600px;
+    background-color: var(--branco-gelo);
+    border-radius: 50px;
+}
+
+.form-moldura {
+    z-index: -30;
+    position: absolute;
+    border: var(--branco) solid 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    outline: var(--azul-escuro) solid 40px;
+}
+
+.form-questao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    padding: 0 60px;
+}
+
+.form-questao-img-contraste {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--branco-transparente);
+    background-size: cover;
+    background-position: 0px -30px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border: var(--branco) solid 10px;
+}
+
+.form-questao-img {
+    z-index: -120;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/fundos/cpilha.png");
+    background-size: cover;
+    background-position: 0px -30px;
+}
+
+.form-questao h3 {
+    z-index: 98;
+    color: var(--preto);
+}
+
+.form-cont-alternativas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    margin: 30px;
+    padding: 15px;
+    position: relative;
+    border-radius: 70px;
+    gap: 15px;
+    background: var(--gradiente-laranja);
+}
+
+.form-alternativa {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    background: var(--gradiente-amarelo);
+    width: 100%;
+    flex-grow: 1;
+    padding: 0 50px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-alternativa-superior {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+.form-alternativa-inferior {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+    gap: 5px;
+}
+
+label {
+    font-weight: bold;
+    color: rgb(114, 114, 114);
+}
+
+.campo-input {
+    flex-grow: 1;
+    width: auto;
+    height: 40px;
+    border-radius: 10px;
+    border: 4px solid var(--amarelo);
+    color: black;
+}
+
+.form-cont-campos {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+.btn-login {
+    margin: 15px;
+    min-width: 100px;
+}
+
+.campo-composto {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+#msgRetorno {
+    color: rgb(255, 0, 0);
+    padding: 10px;
+}
+
+.validacao-campo {
+    display: flex;
+    flex-direction: column;
+}
