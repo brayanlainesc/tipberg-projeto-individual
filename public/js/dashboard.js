@@ -1,4 +1,6 @@
 let minijogos = []
+let erasJogadas = []
+let participacoesDespedida = []
 
 function obterRankingMinijogos() {
     fetch(`/dashboard/minijogos`)
@@ -15,12 +17,42 @@ function obterRankingMinijogos() {
         .catch(function (erro) { console.error(erro) })
 }
 
-function plotarGraficoMinijogos(lista) {
-    var labels = []
-    var valores = []
+function obterErasJogadas() {
+    fetch(`/dashboard/erasJogadas`)
+        .then(function (resposta) {
+            if (!resposta.ok) {
+                throw new Error('Erro ' + resposta.status)
+            }
+            return resposta.json()
+        })
+        .then(function (listaJson) {
+            erasJogadas = listaJson
+            plotarGraficoErasJogadas(erasJogadas)
+        })
+        .catch(function (erro) { console.error(erro) })
+}
 
-    for (var i = 0; i < lista.length; i++) {
-        labels.push(lista[i].jogo) // nomes das colunas do SELECT
+function obterParticipacoesDespedida() {
+    fetch(`/dashboard/despedida`)
+        .then(function (resposta) {
+            if (!resposta.ok) {
+                throw new Error('Erro ' + resposta.status)
+            }
+            return resposta.json()
+        })
+        .then(function (listaJson) {
+            participacoesDespedida = listaJson
+            plotarGraficoDespedida(participacoesDespedida)
+        })
+        .catch(function (erro) { console.error(erro) })
+}
+
+function plotarGraficoMinijogos(lista) {
+    let labels = []
+    let valores = []
+
+    for (let i = 0; i < lista.length; i++) {
+        labels.push(lista[i].texto)
         valores.push(lista[i].qtd_respostas)
     }
 
@@ -31,8 +63,8 @@ function plotarGraficoMinijogos(lista) {
             datasets: [{
                 label: 'Votos',
                 data: valores,
-                backgroundColor: '#22A4F3',
-                borderColor: '#0B388C',
+                backgroundColor: '#FFBB00',
+                borderColor: '#FF9100',
                 borderWidth: 2
             }]
         },
@@ -75,7 +107,134 @@ function plotarGraficoMinijogos(lista) {
     })
 }
 
+function plotarGraficoErasJogadas(lista) {
+    let labels = []
+    let valores = []
+
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i].texto == 'A Raíz (antes da Disney, poucas mecânicas)') {
+            labels.push('Raíz (2000-2007)')
+        } else if (lista[i].texto == 'A Massiva (novos minijogos, festas temáticas)') {
+            labels.push('Massiva (2008-2012)')
+        } else if (lista[i].texto == 'A Histórica (narrativa complexa, operações)') {
+            labels.push('Histórica (2013-2015)')
+        } else if (lista[i].texto == 'A Moderna (patrocínios, gráficos novos)') {
+            labels.push('Moderna (2016-2017)')
+        } else {
+            labels.push('Outros')
+        }
+        valores.push(lista[i].qtd_respostas)
+    }
+
+    new Chart(document.getElementById('grafico_eras_jogadas'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Respostas',
+                data: valores,
+                backgroundColor: '#FFBB00',
+                borderColor: '#FF9100',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            color: '#FAFCFF',
+
+            plugins: {
+                legend: {
+                    display: false,
+                    labels: {
+                        color: '#FAFCFF'
+                    }
+                }
+            },
+
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#FAFCFF'
+                    },
+                    grid: {
+                        color: '#FFFFFF33'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0,
+                        color: '#FAFCFF'
+                    },
+                    grid: {
+                        color: '#FFFFFF33'
+                    }
+                }
+            }
+        }
+    })
+}
+
+function plotarGraficoDespedida(lista) {
+    let labels = []
+    let valores = []
+
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i].texto == 'Sim, e inclusive joguei Club Penguin Island') {
+            labels.push('Sim, Club Penguin Island')
+        } else if (lista[i].texto == 'Sim, mas depois do fechamento não joguei mais') {
+            labels.push('Sim, encerramento')
+        } else if (lista[i].texto == 'Provavelmente, mas não me lembro tão bem') {
+            labels.push('Provavelmente')
+        } else if (lista[i].texto == 'Não, já tinha parado de jogar há um tempo') {
+            labels.push('Não')
+        } else {
+            labels.push('Outros')
+        }
+        valores.push(lista[i].qtd_respostas)
+    }
+
+    new Chart(document.getElementById('grafico_despedida'), {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: valores,
+                backgroundColor: [
+                    '#FFB800',
+                    '#e75500',
+                    '#22A4F3',
+                    '#0B388C'
+                ],
+                borderColor: [
+                    '#FFB800',
+                    '#e75500',
+                    '#22A4F3',
+                    '#0B388C'
+                ],
+                hoverOffset: 4
+            }],
+        },
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        }
+    });
+}
+
 obterRankingMinijogos()
+obterErasJogadas()
+obterParticipacoesDespedida()
 
 function fecharMsgAviso() {
     mensagem_aviso.innerHTML = ``

@@ -6,6 +6,20 @@ function listarMinijogos(req, res) {
     })
 }
 
+function listarErasJogadas(req, res) {
+    dashboardModel.listarErasJogadas().then((resultado) => {
+        res.status(200).json(resultado);
+    })
+}
+
+function listarParticipacoesDespedida(req, res) {
+    dashboardModel.listarParticipacoesDespedida().then((resultado) => {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
-    listarMinijogos
+    listarMinijogos,
+    listarErasJogadas,
+    listarParticipacoesDespedida
 }

@@ -114,11 +114,41 @@ SELECT * FROM resposta;
 -- GRÁFICO 1: RANKING DE MINIJOGOS
 CREATE VIEW vw_ranking_minijogos AS
 SELECT
-	a.texto AS jogo,
+	a.texto,
 	COUNT(r.alternativa_id) AS qtd_respostas
 FROM resposta r
 RIGHT JOIN alternativa a ON r.alternativa_id = a.id
 JOIN questao q ON a.questao_id = q.id
 WHERE q.numero = 1
-GROUP BY jogo
-ORDER BY qtd_respostas DESC, jogo;
+GROUP BY a.texto
+ORDER BY qtd_respostas DESC, a.texto;
+
+SELECT * FROM vw_ranking_minijogos;
+
+-- GRÁFICO 2: COLUNAS DAS ERAS JOGADAS
+CREATE VIEW vw_eras_jogadas AS
+SELECT
+	a.texto,
+	COUNT(r.alternativa_id) AS qtd_respostas
+FROM resposta r
+RIGHT JOIN alternativa a ON r.alternativa_id = a.id
+JOIN questao q ON a.questao_id = q.id
+WHERE q.numero = 2
+GROUP BY a.letra, a.texto
+ORDER BY a.letra;
+
+SELECT * FROM vw_eras_jogadas;
+
+-- GRÁFICO 3: PIZZA DO EVENTO DE DESPEDIDA
+CREATE VIEW vw_evento_despedida AS
+SELECT
+	a.texto,
+	COUNT(r.alternativa_id) AS qtd_respostas
+FROM resposta r
+RIGHT JOIN alternativa a ON r.alternativa_id = a.id
+JOIN questao q ON a.questao_id = q.id
+WHERE q.numero = 3
+GROUP BY a.letra, a.texto
+ORDER BY a.letra;
+
+SELECT * FROM vw_evento_despedida;

@@ -322,6 +322,7 @@ main {
 
 .elemento-dashboard {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
@@ -342,6 +343,12 @@ main {
 
 .grafico-pizza {
     width: 33%;
+    padding: 50px;
+    gap: 30px;
+}
+
+#grafico_despedida {
+    margin: 0 auto;
 }
 
 .area-graficos-colunas {
