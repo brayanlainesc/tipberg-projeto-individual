@@ -3,7 +3,7 @@ USE tipberg;
 
 CREATE TABLE pais (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45) NOT NULL
+    nome VARCHAR(45) NOT NULL UNIQUE
 );
 
 CREATE TABLE usuario (
@@ -19,15 +19,15 @@ CREATE TABLE usuario (
 
 CREATE TABLE questao (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    numero INT NOT NULL,
+    numero INT NOT NULL UNIQUE,
     texto VARCHAR(150) NOT NULL
 );
 
 CREATE TABLE alternativa (
     id INT AUTO_INCREMENT,
+	questao_id INT,
     letra CHAR(1) NOT NULL,
-    questao_id INT,
-    texto VARCHAR(45) NOT NULL,
+    texto VARCHAR(50) NOT NULL,
     FOREIGN KEY (questao_id) REFERENCES questao(id),
     PRIMARY KEY (id, questao_id)
 );
@@ -135,7 +135,7 @@ FROM resposta r
 JOIN usuario u ON r.usuario_id = u.id
 JOIN pais p ON u.pais_id = p.id
 GROUP BY p.nome
-ORDER BY COUNT(r.usuario_id)
+ORDER BY COUNT(r.usuario_id) DESC
 LIMIT 1;
 
 SELECT * FROM vw_pais_jogadores;

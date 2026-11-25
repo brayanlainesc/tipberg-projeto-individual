@@ -1,3 +1,9 @@
+let erroNome = ``
+let erroEmail = ``
+let erroSenha = ``
+let erroAnoNasc = ``
+let erroPaisOrigem = ``
+
 fetch("/paises/listar")
     .then(function (resposta) {
         if (resposta.ok) {
@@ -24,43 +30,21 @@ fetch("/paises/listar")
     });
 
 function cadastrarUsuario() {
-    let erroNome = ``;
-    let erroEmail = ``;
-    let erroSenha = ``;
-    let erroAnoNasc = ``;
     let erroPaisOrigem = ``;
-
-    if (ipt_nome.value.length < 3 || ipt_nome.value.length > 45) {
-        erroNome += `<span style="color:red">O nome deve ter entre 3 a 45 caracteres.</span><br>`
-    }
-    if (ipt_email.value.length < 3 || ipt_email.value.length > 100) {
-        erroEmail += `<span style="color:red">O e-mail deve ter entre 3 a 100 caracteres.</span><br>`
-    }
-    if (
-        ipt_email.value.indexOf("@") <= 0 ||
-        ipt_email.value[(ipt_email.value.indexOf("@") + 1)] == "." ||
-        ipt_email.value.indexOf("@") >= ipt_email.value.indexOf(".com")
-    ) {
-        erroEmail += `<span style="color:red">O e-mail deve ter um domínio válido.</span><br>`
-    }
-    if (ipt_senha.value.length < 8) {
-        erroSenha += `<span style="color:red">A senha deve ter, no mínimo, 8 caracteres.</span><br>`
-    }
-    if (ipt_senha.value != ipt_conf_senha.value) {
-        erroSenha += `<span style="color:red">As senhas inseridas devem ser iguais.</span><br>`
-    }
-    if (ipt_ano_nasc.value % 1 != 0 || ipt_ano_nasc.value < 1900 || ipt_ano_nasc.value > 2024) {
-        erroAnoNasc += `<span style="color:red">Insira um ano válido para o ano de nascimento.</span><br>`
-    }
     if (sel_pais_origem.value == "") {
         erroPaisOrigem += `<span style="color:red">Não esqueça de selecionar seu país!</span><br>`
     }
-
-    msg_erro_nome.innerHTML = erroNome;
-    msg_erro_email.innerHTML = erroEmail;
-    msg_erro_senha.innerHTML = erroSenha;
-    msg_erro_ano_nasc.innerHTML = erroAnoNasc;
     msg_erro_pais_origem.innerHTML = erroPaisOrigem;
+
+    if (
+        erroNome != `` ||
+        erroEmail != `` ||
+        erroSenha != `` ||
+        erroAnoNasc != `` ||
+        erroPaisOrigem != ``
+    ) {
+        return false;
+    }
 
     const nome = ipt_nome.value
     const email = ipt_email.value
@@ -120,4 +104,46 @@ function cadastrarUsuario() {
         });
 
     return false;
+}
+
+function validarNome() {
+    erroNome = ``;
+    if (ipt_nome.value.length < 3 || ipt_nome.value.length > 45) {
+        erroNome += `<span style="color:red">O nome deve ter entre 3 a 45 caracteres.</span><br>`
+    }
+    msg_erro_nome.innerHTML = erroNome;
+}
+
+function validarEmail() {
+    erroEmail = ``;
+    if (ipt_email.value.length < 3 || ipt_email.value.length > 100) {
+        erroEmail += `<span style="color:red">O e-mail deve ter entre 3 a 100 caracteres.</span><br>`
+    }
+    if (
+        ipt_email.value.indexOf("@") <= 0 ||
+        ipt_email.value[(ipt_email.value.indexOf("@") + 1)] == "." ||
+        ipt_email.value.indexOf("@") >= ipt_email.value.indexOf(".com")
+    ) {
+        erroEmail += `<span style="color:red">O e-mail deve ter um domínio válido.</span><br>`
+    }
+    msg_erro_email.innerHTML = erroEmail;
+}
+
+function validarSenha() {
+    erroSenha = ``;
+    if (ipt_senha.value.length < 8) {
+        erroSenha += `<span style="color:red">A senha deve ter, no mínimo, 8 caracteres.</span><br>`
+    }
+    if (ipt_senha.value != ipt_conf_senha.value) {
+        erroSenha += `<span style="color:red">As senhas inseridas devem ser iguais.</span><br>`
+    }
+    msg_erro_senha.innerHTML = erroSenha;
+}
+
+function validarAnoNasc() {
+    erroAnoNasc = ``;
+    if (ipt_ano_nasc.value % 1 != 0 || ipt_ano_nasc.value < 1900 || ipt_ano_nasc.value > 2024) {
+        erroAnoNasc += `<span style="color:red">Insira um ano válido para o ano de nascimento.</span><br>`
+    }
+    msg_erro_ano_nasc.innerHTML = erroAnoNasc;
 }
