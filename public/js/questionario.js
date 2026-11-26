@@ -1,3 +1,9 @@
+if (!sessionStorage.TIPBERG_AUTH_ID) {
+    window.location.href = "../login.html"
+} else if(sessionStorage.TIPBERG_QUESTIONARIO == 1) {
+    window.location.href = "../dashboard.html"
+}
+
 let questoes = []
 let alternativas = []
 let questaoAtual = 0
