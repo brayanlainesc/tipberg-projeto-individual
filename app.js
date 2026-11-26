@@ -18,6 +18,7 @@ const usuarioRouter = require("./src/routers/usuarioRouter");
 const questaoRouter = require("./src/routers/questaoRouter")
 const paisRouter = require("./src/routers/paisRouter")
 const dashboardRouter = require("./src/routers/dashboardRouter")
+const respostaRouter = require("./src/routers/respostaRouter")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +31,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/questoes", questaoRouter)
 app.use("/paises", paisRouter)
 app.use("/dashboard", dashboardRouter)
+app.use("/respostas", respostaRouter)
 
 app.listen(PORTA_APP, function () {
     console.log(`

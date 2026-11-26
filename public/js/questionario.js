@@ -1,36 +1,57 @@
-if (!sessionStorage.TIPBERG_AUTH_ID) {
-    window.location.href = "../login.html"
-} else if(sessionStorage.TIPBERG_QUESTIONARIO == 1) {
-    window.location.href = "../dashboard.html"
-}
-
 let questoes = []
 let alternativas = []
+let respostas = []
 let questaoAtual = 0
 let idQuestaoAtual = -1
 
-fetch(`/questoes/listar`)
-    .then(function (resposta) {
-        if (!resposta.ok) {
-            throw new Error('Erro ' + resposta.status)
-        }
-        return resposta.json()
-    })
-    .then(function (listaJson) {
-        questoes = listaJson
-        return fetch(`/questoes/listarAlternativas`)
-    })
-    .then(function (resposta) {
-        if (!resposta.ok) {
-            throw new Error('Erro ' + resposta.status)
-        }
-        return resposta.json()
-    })
-    .then(function (listaJson) {
-        alternativas = listaJson
-        carregarQuestao(1)
-    })
-    .catch(function (erro) { console.error(erro) })
+if (!sessionStorage.TIPBERG_AUTH_ID) {
+    window.location.href = "../login.html"
+} else {
+    fetch(`/respostas/listar/${sessionStorage.TIPBERG_AUTH_ID}`)
+        .then(function (resposta) {
+            if (!resposta.ok) {
+                throw new Error('Erro ' + resposta.status)
+            }
+            return resposta.json()
+        })
+        .then(function (listaJson) {
+            respostas = listaJson
+
+            if (respostas.length > 0) {
+                alert("Você já respondeu ao questionário!")
+                window.location.href = "../dashboard.html"
+                return
+            }
+
+            fetch(`/questoes/listar`)
+                .then(function (resposta) {
+                    if (!resposta.ok) {
+                        throw new Error('Erro ' + resposta.status)
+                    }
+                    return resposta.json()
+                })
+                .then(function (listaJson) {
+                    questoes = listaJson
+                    return fetch(`/questoes/listarAlternativas`)
+                })
+                .then(function (resposta) {
+                    if (!resposta.ok) {
+                        throw new Error('Erro ' + resposta.status)
+                    }
+                    return resposta.json()
+                })
+                .then(function (listaJson) {
+                    alternativas = listaJson
+                    carregarQuestao(1)
+                })
+                .catch(function (erro) {
+                    console.error(erro)
+                })
+        })
+        .catch(function (erro) {
+            console.error(erro)
+        })
+}
 
 function carregarQuestao(num) {
     questaoAtual = 0
